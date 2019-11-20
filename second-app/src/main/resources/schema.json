@@ -1,0 +1,44 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Subscriber",
+  "description": "A subscriber object",
+  "type": "object",
+  "properties": {
+    "lastname": {
+      "description": "Subscriber's last name",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 19
+    },
+    "firstname": {
+      "description": "Subscriber's first name",
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 9
+    },
+    "workphone": {
+      "description": "Subscriber's work phone number",
+      "type": "string",
+      "pattern": "^\\d{3}-\\d{3}-\\d{2}-\\d{2}$"
+    },
+    "mobilephone": {
+      "description": "Subscriber's mobile phone number",
+      "type": "string",
+      "pattern": "^\\d{3}-\\d{3}-\\d{2}-\\d{2}$"
+    },
+    "mail": {
+      "description": "Subscriber's e-mail",
+      "type": "string",
+      "format": "email",
+      "pattern": "^[^@]{1,29}@{1}.{1,9}$"
+    },
+    "birthdate": {
+      "description": "Subscriber's date of birth",
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "required": ["lastname", "firstname", "workphone", "mobilephone", "mail", "birthdate"],
+  "definitions": {
+  }
+}

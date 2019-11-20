@@ -1,0 +1,6 @@
+app:
+  directory:
+    prepare: prepare
+    work: work
+  datetime-format: ddMMyy_HHmm
+  json-schema: /schema.json
