@@ -1,7 +1,7 @@
 package ru.bortnik.second.controller;
 
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -13,7 +13,7 @@ import javax.validation.Valid;
 
 @Controller
 @RequiredArgsConstructor
-@Log4j2
+@Slf4j
 public class SubscriberController {
 
     private static final String DTO_NAME = "subscriberDto";

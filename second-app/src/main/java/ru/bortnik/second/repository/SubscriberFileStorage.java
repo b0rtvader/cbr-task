@@ -2,7 +2,7 @@ package ru.bortnik.second.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.log4j.Log4j2;
+import lombok.extern.slf4j.Slf4j;
 import org.everit.json.schema.Schema;
 import org.json.JSONObject;
 import org.json.JSONTokener;
@@ -27,8 +27,8 @@ import static java.util.stream.Collectors.*;
  */
 @Component
 @RequiredArgsConstructor
-@Log4j2
-public class FileStorage implements SubscriberStorage {
+@Slf4j
+public class SubscriberFileStorage implements SubscriberStorage {
 
     @Value("${app.directory.prepare}")
     private Path tempPath;

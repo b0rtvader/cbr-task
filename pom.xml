@@ -12,6 +12,7 @@
         <module>first-app</module>
         <module>second-app</module>
         <module>commons</module>
+        <module>camel</module>
     </modules>
 
     <parent>
