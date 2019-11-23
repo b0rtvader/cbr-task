@@ -1,0 +1,73 @@
+<div th:switch="${workplaceList}">
+    <h2 th:case="null">Места работы еще не созданы</h2>
+    <div th:case="*">
+        <h2>Места работы</h2>
+        <div>
+            <input type="checkbox" id="filterCheckbox" name="filterCheckbox" onclick="changeFilterRowVisibility()">
+            <label for="filterCheckbox">Фильтр</label>
+        </div>
+        <table id="workplaceTable">
+            <thead>
+            <tr id="filterRow" style="display:none">
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 0)" placeholder="Поиск по фамилии"></th>
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 1)" placeholder="Поиск по имени"></th>
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 2)" placeholder="Поиск по месту работы"></th>
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 3)" placeholder="Поиск по адресу работы"></th>
+            </tr>
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Место работы</th>
+                <th>Адрес работы</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="workplace : ${workplaceList}">
+                <td th:text="${workplace.lastname}"></td>
+                <td th:text="${workplace.firstname}"></td>
+                <td th:text="${workplace.workPlace}"></td>
+                <td th:text="${workplace.workAddress}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<p><a href="/">На главную страницу</a></p>
+
+<script>
+    function changeFilterRowVisibility() {
+        var checkbox = document.getElementById("filterCheckbox");
+        var filterRow = document.getElementById("filterRow");
+        if (checkbox.checked) {
+            filterRow.style.display = "";
+        } else {
+            filterRow.style.display = "none";
+        }
+    }
+
+    function clearInputs() {
+        var filterRow = document.getElementById("filterRow");
+        var inputs = filterRow.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].value='';
+        }
+    }
+
+    function makeSearch(input, columnNo) {
+        var filter = input.value.toUpperCase();
+        var table = document.getElementById("workplaceTable");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            var td = rows[i].getElementsByTagName("td")[columnNo];
+            if (td) {
+                var txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>

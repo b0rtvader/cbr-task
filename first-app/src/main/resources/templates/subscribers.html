@@ -1,0 +1,82 @@
+<div th:switch="${subscribers}">
+    <h2 th:case="null">Абоненты отсутствуют</h2>
+    <div th:case="*">
+        <h2>Абоненты</h2>
+        <div>
+            <input type="checkbox" id="filterCheckbox" name="filterCheckbox" onclick="changeFilterRowVisibility()">
+            <label for="filterCheckbox">Фильтр</label>
+        </div>
+        <table id="subscriberTable">
+            <thead>
+            <tr id="filterRow" style="display:none">
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 0)" placeholder="Поиск по фамилии"></th>
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 1)" placeholder="Поиск по имени"></th>
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 2)" placeholder="Поиск по рабочему телефону"></th>
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 3)" placeholder="Поиск по мобильному телефону"></th>
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 4)" placeholder="Поиск по электронной почте"></th>
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 5)" placeholder="Поиск по дате рождения"></th>
+                <th><input type="text" onfocus="clearInputs()" onblur="makeSearch(this, 6)" placeholder="Поиск по месту работы"></th>
+            </tr>
+            <tr>
+                <th>Фамилия</th>
+                <th>Имя</th>
+                <th>Рабочий телефон</th>
+                <th>Мобильный телефон</th>
+                <th>Электронная почта</th>
+                <th>Дата рождения</th>
+                <th>Место работы</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="subscriber : ${subscribers}">
+                <td th:text="${subscriber.lastname}"></td>
+                <td th:text="${subscriber.firstname}"></td>
+                <td th:text="${subscriber.workphone}"></td>
+                <td th:text="${subscriber.mobilephone}"></td>
+                <td th:text="${subscriber.mail}"></td>
+                <td th:text="${subscriber.birthdate}"></td>
+                <td th:text="${subscriber.work}"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<p><a href="/">На главную страницу</a></p>
+
+<script>
+    function changeFilterRowVisibility() {
+        var checkbox = document.getElementById("filterCheckbox");
+        var filterRow = document.getElementById("filterRow");
+        if (checkbox.checked) {
+            filterRow.style.display = "";
+        } else {
+            filterRow.style.display = "none";
+        }
+    }
+
+    function clearInputs() {
+        var filterRow = document.getElementById("filterRow");
+        var inputs = filterRow.getElementsByTagName("input");
+        for (var i = 0; i < inputs.length; i++) {
+            inputs[i].value='';
+        }
+    }
+
+    function makeSearch(input, columnNo) {
+        var filter = input.value.toUpperCase();
+        var table = document.getElementById("subscriberTable");
+        var rows = table.getElementsByTagName("tr");
+
+        for (var i = 0; i < rows.length; i++) {
+            var td = rows[i].getElementsByTagName("td")[columnNo];
+            if (td) {
+                var txtValue = td.textContent || td.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    rows[i].style.display = "";
+                } else {
+                    rows[i].style.display = "none";
+                }
+            }
+        }
+    }
+</script>
