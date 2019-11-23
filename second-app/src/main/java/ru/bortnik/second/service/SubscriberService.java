@@ -5,7 +5,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import ru.bortnik.second.dto.SubscriberDto;
 import ru.bortnik.second.exception.SubscriberException;
-import ru.bortnik.second.repository.SubscriberStorage;
+import ru.bortnik.second.storage.SubscriberStorage;
 
 import javax.annotation.PreDestroy;
 

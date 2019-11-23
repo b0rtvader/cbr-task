@@ -1,4 +1,4 @@
-package ru.bortnik.second.repository;
+package ru.bortnik.second.storage;
 
 import ru.bortnik.second.dto.SubscriberDto;
 

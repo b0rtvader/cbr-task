@@ -1,4 +1,4 @@
-package ru.bortnik.second.repository;
+package ru.bortnik.second.storage;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
@@ -40,9 +40,12 @@ public class SubscriberFileStorage implements SubscriberStorage {
     private final Schema schema;
 
     @PostConstruct
-    public void validatePaths() {
-        validatePath(workPath);
-        validatePath(tempPath);
+    public void init() {
+        createSubDirectories(workPath);
+        checkIfDirectory(workPath);
+
+        createSubDirectories(tempPath);
+        checkIfDirectory(tempPath);
     }
 
     @Override
@@ -91,17 +94,19 @@ public class SubscriberFileStorage implements SubscriberStorage {
         file.delete();
     }
 
-    private void validatePath(Path path) {
+    private void createSubDirectories(Path path) {
         try {
             if (!Files.exists(path)) {
                 Files.createDirectories(path);
             }
-
-            if (!Files.isDirectory(path)) {
-                throw new RuntimeException(path + " must be a directory");
-            }
         } catch (IOException e) {
             throw new RuntimeException(e);
+        }
+    }
+
+    private void checkIfDirectory(Path path) {
+        if (!Files.isDirectory(path)) {
+            throw new RuntimeException(path + " must be a directory");
         }
     }
 
