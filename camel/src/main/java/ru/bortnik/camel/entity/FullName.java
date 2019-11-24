@@ -1,6 +1,6 @@
-package ru.bortnik.commons.entity;
+package ru.bortnik.camel.entity;
 
-import lombok.*;
+import lombok.Data;
 
 import javax.persistence.Embeddable;
 import java.io.Serializable;
@@ -9,6 +9,6 @@ import java.io.Serializable;
 @Data
 public class FullName implements Serializable {
 
-    private String firstName;
-    private String secondName;
+    private String lastname;
+    private String firstname;
 }

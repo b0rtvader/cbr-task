@@ -112,8 +112,10 @@ public class SubscriberFileStorage implements SubscriberStorage {
 
     private void validateContent(Path path) throws IOException {
         log.info("Validate file {}", path);
-        var jsonTokener = new JSONTokener(new FileInputStream(path.toFile()));
-        schema.validate(new JSONObject(jsonTokener));
+        try (var inputStream = new FileInputStream(path.toFile())) {
+            var jsonTokener = new JSONTokener(inputStream);
+            schema.validate(new JSONObject(jsonTokener));
+        }
     }
 
     private void copyToWorkPath(Path src) throws IOException {

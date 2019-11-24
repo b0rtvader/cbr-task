@@ -4,3 +4,5 @@ app:
     work: work
   datetime-format: ddMMyy_HHmm
   json-schema: /schema.json
+server:
+  port: 8082
