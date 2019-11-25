@@ -50,22 +50,9 @@
                 <version>${json.schema.version}</version>
             </dependency>
 
-
-
-            <!--<dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-jackson-starter</artifactId>
-                <version>${camel.version}</version>
-            </dependency>-->
             <dependency>
                 <groupId>org.apache.camel</groupId>
                 <artifactId>camel-spring-boot-starter</artifactId>
-                <version>${camel.version}</version>
-            </dependency>
-
-            <dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-core</artifactId>
                 <version>${camel.version}</version>
             </dependency>
 
@@ -80,19 +67,6 @@
                 <artifactId>camel-json-validator-starter</artifactId>
                 <version>${camel.version}</version>
             </dependency>
-
-            <!--<dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-spring</artifactId>
-                <version>${camel.version}</version>
-            </dependency>-->
-
-            <!--<dependency>
-                <groupId>org.apache.camel</groupId>
-                <artifactId>camel-stream</artifactId>
-                <version>${camel.version}</version>
-            </dependency>-->
-
 
             <dependency>
                 <groupId>javax.xml.bind</groupId>
