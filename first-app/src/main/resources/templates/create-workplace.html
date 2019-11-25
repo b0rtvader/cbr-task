@@ -1,15 +1,15 @@
 <form action="#" th:action="@{/workplace}" th:object="${workPlaceDto}" th:method="put">
     <label for="lastname">Фамилия</label>
-    <input type="text" th:field="*{lastname}" id="lastname" placeholder="Last name">
+    <input type="text" th:field="*{lastname}" id="lastname" placeholder="Иванов">
     <br>
     <label for="firstname">Имя</label>
-    <input type="text" th:field="*{firstname}" id="firstname" placeholder="First name">
+    <input type="text" th:field="*{firstname}" id="firstname" placeholder="Иван">
     <br>
     <label for="workPlace">Место работы</label>
-    <input type="text" th:field="*{workPlace}" id="workPlace" placeholder="Work place">
+    <input type="text" th:field="*{workPlace}" id="workPlace" placeholder="Наименование организации">
     <br>
     <label for="workAddress">Адрес работы</label>
-    <input type="text" th:field="*{workAddress}" id="workAddress" placeholder="Work address">
+    <input type="text" th:field="*{workAddress}" id="workAddress" placeholder="Адрес оргиназции">
     <br><br>
     <input type="submit" value="Добавить">
 </form>

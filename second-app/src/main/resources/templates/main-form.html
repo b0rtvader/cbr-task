@@ -1,30 +1,30 @@
 <form action="#" th:action="@{/subscriber}" th:object="${subscriberDto}" method="post">
-    <label for="lastname">Last name</label>
-    <input type="text" th:field="*{lastname}" id="lastname" placeholder="Last name">
+    <label for="lastname">Фамилия</label>
+    <input type="text" th:field="*{lastname}" id="lastname" placeholder="Иванов">
     <span th:if="${#fields.hasErrors('lastname')}" th:errors="*{lastname}"></span>
     <br>
-    <label for="firstname">First name</label>
-    <input type="text" th:field="*{firstname}" id="firstname" placeholder="First name">
+    <label for="firstname">Имя</label>
+    <input type="text" th:field="*{firstname}" id="firstname" placeholder="Иван">
     <span th:if="${#fields.hasErrors('firstname')}" th:errors="*{firstname}"></span>
     <br>
 
     <input type="hidden">
     <span th:if="${#fields.hasErrors('global')}" th:errors="*{global}"></span>
     <br>
-    <label for="workphone">Work phone</label>
+    <label for="workphone">Рабочий телефон</label>
     <input type="text" th:field="*{workphone}" id="workphone" placeholder="nnn-ddd-dd-dd">
     <span th:if="${#fields.hasErrors('workphone')}" th:errors="*{workphone}"></span>
     <br>
-    <label for="mobilephone">Mobile phone</label>
+    <label for="mobilephone">Мобильный телефон</label>
     <input type="text" th:field="*{mobilephone}" id="mobilephone" placeholder="nnn-ddd-dd-dd">
     <span th:if="${#fields.hasErrors('mobilephone')}" th:errors="*{mobilephone}"></span>
     <br><br>
 
-    <label for="mail">Email</label>
+    <label for="mail">Электронная почта</label>
     <input type="text" th:field="*{mail}" id="mail" placeholder="example@domain.com">
     <span th:if="${#fields.hasErrors('mail')}" th:errors="*{mail}"></span>
     <br>
-    <label for="birthdate">Birthdate</label>
+    <label for="birthdate">Дата рождения</label>
     <input type="date" min="1900-01-01" th:field="*{birthdate}" id="birthdate" placeholder="dd.mm.yyyy">
     <span th:if="${#fields.hasErrors('birthdate')}" th:errors="*{birthdate}"></span>
     <br><br>
