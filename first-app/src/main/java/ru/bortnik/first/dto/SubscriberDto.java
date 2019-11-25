@@ -1,9 +1,13 @@
 package ru.bortnik.first.dto;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 
 import java.time.LocalDate;
 
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Data
 public class SubscriberDto {
 

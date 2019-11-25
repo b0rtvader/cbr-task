@@ -1,12 +1,16 @@
 package ru.bortnik.camel.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.RequiredArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;
 
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Data
 public class SubscriberDto {
 

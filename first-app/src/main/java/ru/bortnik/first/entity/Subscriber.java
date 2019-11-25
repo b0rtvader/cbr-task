@@ -1,6 +1,8 @@
 package ru.bortnik.first.entity;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.RequiredArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.Entity;
@@ -10,6 +12,8 @@ import java.time.LocalDate;
 
 @Entity
 @IdClass(FullName.class)
+@AllArgsConstructor
+@RequiredArgsConstructor
 @Getter
 @Setter
 public class Subscriber {
