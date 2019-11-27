@@ -2,6 +2,6 @@
 target/
 *.iml
 logs/
-*.json
 *.txt
 *.ready
+*.json

@@ -1,0 +1,13 @@
+app:
+  folders:
+    temp: test/prepare
+    work: test/work
+    data: test/data
+  datetime-format: ddMMyy_HHmm
+  json-schema: /schema.json
+spring:
+  datasource:
+    url: jdbc:h2:mem:mydb
+    driver-class-name: org.h2.Driver
+    username: sa
+    password:
